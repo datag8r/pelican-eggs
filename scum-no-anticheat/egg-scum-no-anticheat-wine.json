@@ -1,16 +1,16 @@
 {
   "meta": {
-    "version": "PTDL_v2",
+    "version": "PLCN_v1",
     "update_url": null
   },
-  "exported_at": "2025-06-20T00:00:00+00:00",
-  "name": "SCUM Dedicated Server",
+  "exported_at": "2025-06-20T19:11:38+00:00",
+  "name": "SCUM Dedicated Server (Test)",
   "author": "datag8r@example.com",
-  "uuid":"1dd96f93-1546-4704-9ddf-f5a755f56ca0",
-  "description": "Runs the SCUM dedicated server via Wine using SteamCMD and anonymous login.",
+  "uuid": "65067226-1aa7-41d0-ac1b-cdd319a065aa",
+  "description": null,
   "features": null,
   "docker_images": {
-    "ghcr.io\/datag8r\/pelican-scum-wine-no-ac:latest": "Custom SCUM server with Wine"
+    "Custom SCUM server with Wine": "ghcr.io\/datag8r\/pelican-scum-wine-no-ac:latest"
   },
   "file_denylist": [],
   "startup": "bash startup.sh",
@@ -22,9 +22,9 @@
   },
   "scripts": {
     "installation": {
-      "script": "#!\/bin\/bash\r\napt update && apt install -y curl\r\nmkdir -p \/steamcmd && cd \/steamcmd\r\ncurl -sqL \"https:\/\/steamcdn-a.akamaihd.net\/client\/installer\/steamcmd_linux.tar.gz\" | tar zxvf -\r\n",
-      "container": "ubuntu:20.04",
-      "entrypoint": "\/bin\/bash"
+      "script": "#!\/bin\/bash# steamcmd Base Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\n# Image to install with is 'ghcr.io\/parkervcp\/installers:debian'\r\n# Install packages. Default packages below are not required if using our existing install image thus speeding up the install process.\r\n#apt -y update\r\n#apt -y --no-install-recommends install curl lib32gcc-s1 ca-certificates\r\n## just in case someone removed the defaults.\r\n\r\n## download and install steamcmd\r\n## install end\r\necho \"Install steamcmd\"\r\ncd \/tmp\r\nmkdir -p \/mnt\/server\/steamcmd\r\ncurl -sSL -o steamcmd.tar.gz https:\/\/steamcdn-a.akamaihd.net\/client\/installer\/steamcmd_linux.tar.gz\r\ntar -xzvf steamcmd.tar.gz -C \/mnt\/server\/steamcmd\r\nmkdir -p \/mnt\/server\/steamapps # Fix steamcmd disk write error when this folder is missing\r\ncd \/mnt\/server\/steamcmd\r\n# SteamCMD fails otherwise for some reason, even running as root.\r\n# This is changed at the end of the install process anyways.\r\nchown -R root:root \/mnt\r\nexport HOME=\/mnt\/server\r\n## install game using steamcmd\r\n## install end\r\necho \"Install game\"\r\n.\/steamcmd.sh +force_install_dir \/mnt\/server +login anonymous +app_update 3792580 validate +quit ## other flags may be needed depending on install. looking at you cs 1.6\r\n## set up 32 bit libraries\r\nmkdir -p \/mnt\/server\/.steam\/sdk32\r\ncp -v linux32\/steamclient.so ..\/.steam\/sdk32\/steamclient.so\r\n## set up 64 bit libraries\r\nmkdir -p \/mnt\/server\/.steam\/sdk64\r\ncp -v linux64\/steamclient.so ..\/.steam\/sdk64\/steamclient.so\r\n## install end\r\necho \"Installation completed...\"",
+      "container": "ghcr.io\/pelican-eggs\/installers:debian",
+      "entrypoint": "bash"
     }
   },
   "variables": [
