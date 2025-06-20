@@ -13,6 +13,9 @@ RUN mkdir -p /steamcmd && cd /steamcmd && \
     curl -sL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
 
 # Add startup script
+
+LABEL org.opencontainers.image.source=https://github.com/datag8r/pelican-eggs
+
 COPY startup.sh /home/container/startup.sh
 RUN chmod +x /home/container/startup.sh
 

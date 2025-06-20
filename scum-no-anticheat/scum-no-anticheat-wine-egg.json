@@ -9,7 +9,7 @@
   "description": "Runs the SCUM dedicated server via Wine using SteamCMD and anonymous login.",
   "features": null,
     "docker_images": {
-        "ghcr.io/datag8r/scum-no-anticheat:latest": "Custom SCUM server with Wine"
+        "ghcr.io/datag8r/pelican-scum-wine-no-ac:latest": "Custom SCUM server with Wine"
     },
   "file_denylist": [],
   "startup": "bash startup.sh",
