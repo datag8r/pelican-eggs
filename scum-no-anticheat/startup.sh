@@ -1,13 +1,13 @@
 #!/bin/bash
 
-set UPDATE_ON_BOOT 1
+export UPDATE_ON_BOOT="1"
 
 if [ "${UPDATE_ON_BOOT}" == "1" ]; then
     echo "Updating SCUM server via SteamCMD..."
     /mnt/server/steamcmd/steamcmd.sh +login anonymous \
         +force_install_dir /mnt/server \
         +login anonymous \
-        +app_update 3792581 validate +quit
+        +app_update 3792580 validate +quit
 fi
 
 # Start the server
