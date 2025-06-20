@@ -11,4 +11,4 @@ fi
 
 # Start the server
 cd /home/container/scum_server
-xvfb-run --auto-servernum wine SCUMServer.exe -log -PORT=${SERVER_PORT:-7777}
+xvfb-run --auto-servernum wine SCUMServer.exe -log -PORT=${SERVER_PORT:-7777} -nobattleye
