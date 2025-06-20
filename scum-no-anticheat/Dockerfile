@@ -19,4 +19,6 @@ LABEL org.opencontainers.image.source=https://github.com/datag8r/pelican-eggs
 COPY startup.sh /home/container/startup.sh
 RUN chmod +x /home/container/startup.sh
 
+CMD ["startup.sh"]
+
 WORKDIR /home/container
