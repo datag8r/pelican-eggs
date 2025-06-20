@@ -1,9 +1,9 @@
 {
   "meta": {
-    "version": "PTDL_v2",
+    "version": "PLCN_v1",
     "update_url": null
   },
-  "exported_at": "2025-06-20T00:00:00Z",
+  "exported_at": "2025-06-20T00:00:00+00:00",
   "name": "SCUM Dedicated Server",
   "author": "datag8r",
   "uuid":"1dd96f93-1546-4704-9ddf-f5a755f56ca0",
