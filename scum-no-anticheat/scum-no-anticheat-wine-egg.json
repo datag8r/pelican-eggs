@@ -8,9 +8,9 @@
   "author": "datag8r",
   "description": "Runs the SCUM dedicated server via Wine using SteamCMD and anonymous login.",
   "features": null,
-  "docker_images": {
-    "github.com/datag8r/pelican-eggs/scum-no-anticheat:latest": "Recommended Image with Wine and SteamCMD preinstalled"
-  },
+    "docker_images": {
+        "ghcr.io/datag8r/scum-no-anticheat:latest": "Custom SCUM server with Wine"
+    },
   "file_denylist": [],
   "startup": "bash startup.sh",
   "config": {

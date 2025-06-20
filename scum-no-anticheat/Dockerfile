@@ -5,7 +5,7 @@ FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 RUN dpkg --add-architecture i386 && \
     apt update && apt install -y \
-    wine-staging xvfb winbind curl unzip \
+    wine64 xvfb winbind curl unzip \
     lib32gcc-s1 lib32stdc++6 software-properties-common
 
 # Install SteamCMD
