@@ -15,19 +15,15 @@
   "startup": "bash startup.sh",
   "config": {
     "files": {},
-    "startup": {
-      "done": "Server started"
-    },
-    "logs": {
-      "custom": true,
-      "location": "/home/container/scum_server/Saved/Logs"
-    },
+    "startup": "{\r\n    \"done\": \"Engine Initialization\"\r\n}",
+    "logs": "{}",
     "stop": "^C"
   },
   "scripts": {
     "installation": {
-      "script": "#!/bin/bash\napt update\n\nmkdir -p /steamcmd && cd /steamcmd\ncurl -sqL \"https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz\" | tar zxvf -\n",
-      "container": "ubuntu:20.04"
+      "script": "#!\/bin\/bash\r\napt update\r\nmkdir -p \/steamcmd && cd \/steamcmd\ncurl -sqL \"https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz\" | tar zxvf -r\n",
+      "container": "ubuntu:20.04",
+      "entrypoint": "\/bin\/bash"
     }
   },
   "variables": [
@@ -37,6 +33,7 @@
       "env_variable": "SERVER_PORT",
       "default_value": "7777",
       "user_viewable": true,
+      "user_editable": false,
       "required": true,
       "field_type": "text"
     }
