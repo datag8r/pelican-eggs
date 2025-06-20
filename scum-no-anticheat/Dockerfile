@@ -9,16 +9,14 @@ RUN dpkg --add-architecture i386 && \
     lib32gcc-s1 lib32stdc++6 software-properties-common
 
 # Install SteamCMD
-RUN mkdir -p /steamcmd && cd /steamcmd && \
+RUN mkdir -p /mnt/server/steamcmd && cd /mnt/server/steamcmd && \
     curl -sL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar zxvf -
 
 # Add startup script
 
 LABEL org.opencontainers.image.source=https://github.com/datag8r/pelican-eggs
 
-COPY startup.sh /home/container/startup.sh
-RUN chmod +x /home/container/startup.sh
+COPY startup.sh /mnt/server/startup.sh
+RUN chmod +x /mnt/server/startup.sh
 
-CMD ["startup.sh"]
-
-WORKDIR /home/container
+WORKDIR /mnt/server

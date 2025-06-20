@@ -13,7 +13,7 @@
     "Custom SCUM server with Wine": "ghcr.io\/datag8r\/pelican-scum-wine-no-ac:latest"
   },
   "file_denylist": [],
-  "startup": "bash startup.sh",
+  "startup": "echo \"starting\" xvfb-run --auto-servernum wine /mnt/server/SCUMServer.exe -log -PORT=${SERVER_PORT:-7777} -nobattleye",
   "config": {
     "files": "{}",
     "startup": "{\r\n  \"done\": \"Engine Initialization\"\r\n}",
