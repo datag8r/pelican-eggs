@@ -4,7 +4,7 @@
     "update_url": null
   },
   "exported_at": "2025-06-20T00:00:00Z",
-  "name": "SCUM Dedicated Server (Wine) [No Anticheat]",
+  "name": "SCUM Dedicated Server",
   "author": "datag8r",
   "description": "Runs the SCUM dedicated server via Wine using SteamCMD and anonymous login.",
   "features": [],
