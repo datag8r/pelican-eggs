@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set UPDATE_ON_BOOT 1
+
 if [ "${UPDATE_ON_BOOT}" == "1" ]; then
     echo "Updating SCUM server via SteamCMD..."
     /mnt/server/steamcmd/steamcmd.sh +login anonymous \
