@@ -16,7 +16,10 @@ RUN mkdir -p /mnt/server/steamcmd && cd /mnt/server/steamcmd && \
 
 LABEL org.opencontainers.image.source=https://github.com/datag8r/pelican-eggs
 
-COPY startup.sh /mnt/server/startup.sh
+COPY ./startup.sh /mnt/server/startup.sh
 RUN chmod +x /mnt/server/startup.sh
 
 WORKDIR /mnt/server
+
+CMD ["bash", "startup.sh"]
+
