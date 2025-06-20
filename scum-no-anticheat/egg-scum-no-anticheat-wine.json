@@ -6,6 +6,7 @@
   "exported_at": "2025-06-20T00:00:00Z",
   "name": "SCUM Dedicated Server",
   "author": "datag8r",
+  "uuid":"1dd96f93-1546-4704-9ddf-f5a755f56ca0",
   "description": "Runs the SCUM dedicated server via Wine using SteamCMD and anonymous login.",
   "features": [],
   "docker_images": {
